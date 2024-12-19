@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robert Billings | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+    }
+    a {
+      color: #00adb5;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #ff5722;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #121212;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00adb5;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+    nav ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a1a, #121212);
+      min-height: calc(100vh - 80px); /* Center relative to screen height */
+    }
+    .hero img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 2s forwards;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid #00adb5;
+      max-width: fit-content;
+      animation: typing 3s steps(20) forwards, blink 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    .hero p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      color: #ccc;
+      opacity: 0;
+      animation: fadeIn 2s 1s forwards;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #00adb5;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: background-color 0.3s;
+      opacity: 0;
+      animation: fadeIn 2s 1.5s forwards;
+    }
+    .btn:hover {
+      background-color: #ff5722;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .projects, .about, .interests {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .projects h2, .about h2, .interests h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .project-card {
+      padding: 1.5rem;
+      background-color: #222831;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .interest-card {
+      padding: 1.5rem;
+      background-color: #222831;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s;
+    }
+    .interest-card:hover {
+      transform: translateY(-10px);
+    }
+    #contact {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background-color: #121212;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">RB</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="images/profile.jpg" alt="Robert Billings">
+    <h1>Hi, I'm <span>Robert.</span></h1>
+    <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
+    <a href="#projects" class="btn">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I'm Robert, a passionate software engineer with a focus on developing intuitive and engaging applications. I combine creativity and technical skills to turn ideas into reality.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="grid-container">
+      <div class="project-card">
+        <h3>Personal Finance App</h3>
+        <p>A tool to manage and track your expenses efficiently.</p>
+      </div>
+      <div class="project-card">
+        <h3>Airline Reservation System</h3>
+        <p>A streamlined system for booking and managing flights.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>Designed and built this responsive, interactive portfolio website.</p>
+      </div>
+    </div>
+  </section>
+
+   <!-- Interests Section -->
+  <section id="interests", class="interests">
+    <h2>Interests</h2>
+    <div class="grid-container">
+      <div class="interest-card">
+        <h3>Photography</h3>
+        <p>Capturing moments, from landscapes to events, is my creative escape.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Music</h3>
+        <p>Exploring genres, playing instruments, and discovering new sounds.</p>
+      </div>
+      <div class="interest-card">
+        <h3>Running</h3>
+        <p>Staying active and pushing my limits with regular runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect and create something amazing together.</p>
+    <p>Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">LinkedIn</a></p>
+    <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Robert Billings. Built with ❤️</p>
+  </footer>
+</body>
+</html>
