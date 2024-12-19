@@ -11,6 +11,7 @@
       font-family: 'Poppins', sans-serif;
       background-color: #0f0f0f;
       color: #fff;
+      overflow-x: hidden;
       line-height: 1.6;
     }
     a {
@@ -54,7 +55,27 @@
       text-align: center;
       padding: 6rem 2rem;
       background: linear-gradient(135deg, #1a1a1a, #121212);
-      min-height: calc(100vh - 80px); /* Center relative to screen height */
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 150, 136, 0.2), transparent);
+      animation: backgroundPulse 6s infinite;
+    }
+    @keyframes backgroundPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
     }
     .hero img {
       width: 200px;
@@ -114,6 +135,9 @@
     .projects, .about, .interests {
       padding: 4rem 2rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: scrollFadeIn 1s forwards;
     }
     .projects h2, .about h2, .interests h2 {
       font-size: 2.5rem;
@@ -124,10 +148,11 @@
       background-color: #222831;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .project-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
     }
     .grid-container {
       display: grid;
@@ -153,6 +178,16 @@
       text-align: center;
       padding: 1rem 2rem;
       background-color: #121212;
+    }
+    @keyframes scrollFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -205,7 +240,7 @@
   </section>
 
    <!-- Interests Section -->
-  <section id="interests", class="interests">
+  <section id="interests" class="interests">
     <h2>Interests</h2>
     <div class="grid-container">
       <div class="interest-card">
