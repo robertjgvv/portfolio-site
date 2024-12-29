@@ -54,9 +54,9 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 6rem 2rem;
+      padding: 4rem 2rem;
       background: linear-gradient(135deg, #1a1a1a, #121212);
-      min-height: 100vh;
+      min-height: 90vh;
       position: relative;
       overflow: hidden;
     }
@@ -188,7 +188,6 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section id="home" class="hero">
     <img src="images/profile.jpg" alt="Robert Billings">
     <h1>Hi, I'm <span>Robert.</span></h1>
@@ -197,7 +196,6 @@
     <a href="#projects" class="btn">View My Work</a>
   </section>
 
-  <!-- JavaScript for Typing Effect -->
   <script>
     const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
     let index = 0;
@@ -212,11 +210,10 @@
       }, 10);
     }
 
-    setInterval(typeEffect, 3000); // Change text every 3 seconds
-    typeEffect(); // Initialize typing effect
+    setInterval(typeEffect, 3000);
+    typeEffect();
   </script>
 
-  <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2><i class="fas fa-laptop-code icon"></i>Projects</h2>
     <div class="grid-container">
@@ -266,7 +263,6 @@
   </footer>
 
   <button class="scroll-to-top" id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
-
   <script>
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
