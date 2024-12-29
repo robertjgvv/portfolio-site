@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robert Billings | Software Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -59,30 +60,16 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(0, 150, 136, 0.2), transparent);
-      animation: backgroundPulse 6s infinite;
-    }
-    @keyframes backgroundPulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-    }
     .hero img {
       width: 200px;
       border-radius: 50%;
       margin-bottom: 1.5rem;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-      animation: fadeIn 2s forwards;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero img:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
     }
     .hero h1 {
       font-size: 3rem;
@@ -132,34 +119,13 @@
         transform: translateY(0);
       }
     }
-    .projects, .about, .interests {
-      padding: 4rem 2rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: scrollFadeIn 1s forwards;
-    }
-    .projects h2, .about h2, .interests h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-    .project-card {
-      padding: 1.5rem;
-      background-color: #222831;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
-    }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
+      padding: 0 1rem;
     }
-    .interest-card {
+    .project-card, .interest-card {
       padding: 1.5rem;
       background-color: #222831;
       border-radius: 10px;
@@ -167,7 +133,7 @@
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
       transition: transform 0.3s;
     }
-    .interest-card:hover {
+    .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
     }
     #contact {
@@ -179,20 +145,36 @@
       padding: 1rem 2rem;
       background-color: #121212;
     }
-    @keyframes scrollFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: #00adb5;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: none;
+    }
+    .scroll-to-top:hover {
+      background-color: #ff5722;
+    }
+    .icon {
+      margin-right: 0.5rem;
+    }
+    .projects h2, .interests h2 {
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
   <header>
     <div class="logo">RB</div>
     <nav>
@@ -210,19 +192,33 @@
   <section id="home" class="hero">
     <img src="images/profile.jpg" alt="Robert Billings">
     <h1>Hi, I'm <span>Robert.</span></h1>
+    <div id="dynamic-text" class="dynamic-text">Software Engineer</div>
     <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
     <a href="#projects" class="btn">View My Work</a>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>I'm Robert, a passionate software engineer with a focus on developing intuitive and engaging applications. I combine creativity and technical skills to turn ideas into reality.</p>
-  </section>
+  <!-- JavaScript for Typing Effect -->
+  <script>
+    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
+    let index = 0;
+
+    function typeEffect() {
+      const dynamicText = document.getElementById("dynamic-text");
+      dynamicText.style.animation = "none";
+      setTimeout(() => {
+        dynamicText.style.animation = "";
+        dynamicText.textContent = roles[index];
+        index = (index + 1) % roles.length;
+      }, 10);
+    }
+
+    setInterval(typeEffect, 3000); // Change text every 3 seconds
+    typeEffect(); // Initialize typing effect
+  </script>
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
-    <h2>Projects</h2>
+    <h2><i class="fas fa-laptop-code icon"></i>Projects</h2>
     <div class="grid-container">
       <div class="project-card">
         <h3>Personal Finance App</h3>
@@ -239,9 +235,8 @@
     </div>
   </section>
 
-   <!-- Interests Section -->
   <section id="interests" class="interests">
-    <h2>Interests</h2>
+    <h2><i class="fas fa-heart icon"></i>Interests</h2>
     <div class="grid-container">
       <div class="interest-card">
         <h3>Photography</h3>
@@ -258,18 +253,34 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2><i class="fas fa-envelope icon"></i>Contact Me</h2>
     <p>Let's connect and create something amazing together.</p>
     <p>Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">LinkedIn</a></p>
     <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2024 Robert Billings. Built with ❤️</p>
   </footer>
+
+  <button class="scroll-to-top" id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = "flex";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
