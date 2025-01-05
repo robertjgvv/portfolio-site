@@ -16,10 +16,10 @@
       --btn-hover: #0056b3;
     }
     [data-theme="light"] {
-      --bg-color: #f5f5f5;
-      --text-color: #222;
-      --header-bg: #121212;
-      --card-bg: #e6e6e6;
+      --bg-color: #eaeaea;
+      --text-color: #333;
+      --header-bg: #f5f5f5;
+      --card-bg: #dcdcdc;
       --btn-bg: #007bff;
       --btn-hover: #0056b3;
     }
@@ -41,6 +41,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s;
     }
     .logo {
@@ -60,6 +61,9 @@
       color: var(--text-color);
       transition: color 0.3s;
       text-decoration: none;
+    }
+    nav ul li a.active {
+      border-bottom: 2px solid var(--btn-bg);
     }
     nav ul li a:hover {
       color: var(--btn-hover);
@@ -119,7 +123,7 @@
     .hero p {
       margin-bottom: 2rem;
       font-size: 1.2rem;
-      color: #777;
+      color: #555;
       opacity: 0;
       animation: fadeIn 2s 1s forwards;
     }
@@ -153,9 +157,10 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       padding: 0 1rem;
+      text-align: center;
     }
     .project-card, .interest-card {
-      padding: 1.5rem;
+      padding: 2rem; /* Increased padding for larger cards */
       background-color: var(--card-bg);
       border-radius: 10px;
       text-align: center;
@@ -165,9 +170,40 @@
     .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
     }
+    .projects, .interests {
+      padding: 6rem 2rem; /* Increased padding to expand sections */
+    }
+    .projects h2, .interests h2 {
+      text-align: center; /* Centering headers */
+    }
     #contact {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
+      background-color: var(--header-bg);
+      color: var(--text-color);
+    }
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .contact-details, .linkedin-feed {
+      flex: 1;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .contact-details h3, .linkedin-feed h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-details p, .linkedin-feed p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
     }
     footer {
       text-align: center;
@@ -199,10 +235,17 @@
     .icon {
       margin-right: 0.5rem;
     }
-    .projects h2, .interests h2 {
-      text-align: center;
+    .linkedin-feed iframe {
+      margin: auto;
+      display: block;
+      width: 100%;
+      border: none;
+      height: 300px;
     }
     @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
       .hero {
         padding: 3rem 1rem;
       }
@@ -234,8 +277,7 @@
     <div class="logo">RB</div>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about" class="active">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -246,7 +288,7 @@
     </button>
   </header>
 
-  <section id="home" class="hero">
+  <section id="about" class="hero">
     <img src="images/profile.jpg" alt="Robert Billings">
     <h1>Hi, I'm <span>Robert.</span></h1>
     <div id="dynamic-text" class="dynamic-text">Software Engineer</div>
@@ -292,10 +334,19 @@
 
   <section id="contact">
     <h2><i class="fas fa-envelope icon"></i>Contact Me</h2>
-    <p>Let's connect and create something amazing together.</p>
-    <p>Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">LinkedIn</a></p>
-    <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
+    <div class="contact-container">
+      <div class="contact-details">
+        <h3>Get in Touch</h3>
+        <p>Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">LinkedIn</a></p>
+        <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
+      </div>
+      <div class="linkedin-feed">
+        <h3>Latest from LinkedIn</h3>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:1234567890123456789" height="300" frameborder="0" allowfullscreen="" title="Embedded LinkedIn Feed"></iframe>
+        <p><a href="https://www.linkedin.com/in/robert--billings/" target="_blank">View Full LinkedIn Profile</a></p>
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -350,6 +401,29 @@
 
     setInterval(typeEffect, 3000);
     typeEffect();
+
+    // Scrollspy for active navigation link
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
