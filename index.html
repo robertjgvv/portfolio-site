@@ -7,36 +7,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #fff;
+      --header-bg: #121212;
+      --card-bg: #1b2a41;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+    }
+    [data-theme="light"] {
+      --bg-color: #f5f5f5;
+      --text-color: #222;
+      --header-bg: #121212; /* Keep navigation bar dark */
+      --card-bg: #e6e6e6;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       overflow-x: hidden;
       line-height: 1.6;
-    }
-    a {
-      color: #00adb5;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: #ff5722;
+      transition: background-color 0.3s, color 0.3s;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #121212;
+      background-color: var(--header-bg);
       position: sticky;
       top: 0;
       z-index: 1000;
+      transition: background-color 0.3s;
     }
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #00adb5;
+      color: var(--btn-bg);
     }
     nav ul {
       list-style: none;
@@ -47,6 +57,23 @@
     nav ul li a {
       font-weight: 600;
       text-transform: uppercase;
+      color: var(--text-color);
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      color: var(--btn-hover);
+    }
+    .toggle-theme {
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--btn-bg);
+      transition: color 0.3s;
+    }
+    .toggle-theme:hover {
+      color: var(--btn-hover);
     }
     .hero {
       display: flex;
@@ -55,10 +82,11 @@
       align-items: center;
       text-align: center;
       padding: 4rem 2rem;
-      background: linear-gradient(135deg, #1a1a1a, #121212);
+      background-color: var(--bg-color);
       min-height: 90vh;
       position: relative;
       overflow: hidden;
+      transition: background-color 0.3s;
     }
     .hero img {
       width: 200px;
@@ -77,7 +105,7 @@
       margin: 0 0 1rem;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 0.15em solid #00adb5;
+      border-right: 0.15em solid var(--btn-bg);
       max-width: fit-content;
       animation: typing 3s steps(20) forwards, blink 0.75s step-end infinite;
     }
@@ -91,23 +119,24 @@
     .hero p {
       margin-bottom: 2rem;
       font-size: 1.2rem;
-      color: #ccc;
+      color: #777;
       opacity: 0;
       animation: fadeIn 2s 1s forwards;
     }
     .btn {
       display: inline-block;
       padding: 0.8rem 1.5rem;
-      background-color: #00adb5;
+      background-color: var(--btn-bg);
       color: #fff;
       font-weight: 600;
       border-radius: 50px;
       transition: background-color 0.3s;
       opacity: 0;
       animation: fadeIn 2s 1.5s forwards;
+      text-decoration: none;
     }
     .btn:hover {
-      background-color: #ff5722;
+      background-color: var(--btn-hover);
     }
     @keyframes fadeIn {
       from {
@@ -127,11 +156,11 @@
     }
     .project-card, .interest-card {
       padding: 1.5rem;
-      background-color: #222831;
+      background-color: var(--card-bg);
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s;
     }
     .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
@@ -143,13 +172,14 @@
     footer {
       text-align: center;
       padding: 1rem 2rem;
-      background-color: #121212;
+      background-color: var(--header-bg);
+      transition: background-color 0.3s;
     }
     .scroll-to-top {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      background-color: #00adb5;
+      background-color: var(--btn-bg);
       color: #fff;
       border: none;
       border-radius: 50%;
@@ -164,7 +194,7 @@
       display: none;
     }
     .scroll-to-top:hover {
-      background-color: #ff5722;
+      background-color: var(--btn-hover);
     }
     .icon {
       margin-right: 0.5rem;
@@ -174,7 +204,7 @@
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
   <header>
     <div class="logo">RB</div>
     <nav>
@@ -186,6 +216,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
   </header>
 
   <section id="home" class="hero">
@@ -195,24 +228,6 @@
     <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
     <a href="#projects" class="btn">View My Work</a>
   </section>
-
-  <script>
-    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
-    let index = 0;
-
-    function typeEffect() {
-      const dynamicText = document.getElementById("dynamic-text");
-      dynamicText.style.animation = "none";
-      setTimeout(() => {
-        dynamicText.style.animation = "";
-        dynamicText.textContent = roles[index];
-        index = (index + 1) % roles.length;
-      }, 10);
-    }
-
-    setInterval(typeEffect, 3000);
-    typeEffect();
-  </script>
 
   <section id="projects" class="projects">
     <h2><i class="fas fa-laptop-code icon"></i>Projects</h2>
@@ -277,6 +292,40 @@
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    function setTheme(theme) {
+      body.setAttribute('data-theme', theme);
+      themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      localStorage.setItem('theme', theme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Load theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
+    let index = 0;
+
+    function typeEffect() {
+      const dynamicText = document.getElementById("dynamic-text");
+      dynamicText.style.animation = "none";
+      setTimeout(() => {
+        dynamicText.style.animation = "";
+        dynamicText.textContent = roles[index];
+        index = (index + 1) % roles.length;
+      }, 10);
+    }
+
+    setInterval(typeEffect, 3000);
+    typeEffect();
   </script>
 </body>
 </html>
