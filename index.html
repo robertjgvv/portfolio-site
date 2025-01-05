@@ -7,46 +7,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    :root {
-      --bg-color: #0f0f0f;
-      --text-color: #fff;
-      --header-bg: #121212;
-      --card-bg: #1b2a41;
-      --btn-bg: #007bff;
-      --btn-hover: #0056b3;
-    }
-    [data-theme="light"] {
-      --bg-color: #f5f5f5;
-      --text-color: #222;
-      --header-bg: #121212;
-      --card-bg: #e6e6e6;
-      --btn-bg: #007bff;
-      --btn-hover: #0056b3;
-    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: #0f0f0f;
+      color: #fff;
       overflow-x: hidden;
       line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
+    }
+    a {
+      color: #00adb5;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #ff5722;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: var(--header-bg);
+      background-color: #121212;
       position: sticky;
       top: 0;
       z-index: 1000;
-      transition: background-color 0.3s;
     }
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--btn-bg);
+      color: #00adb5;
     }
     nav ul {
       list-style: none;
@@ -57,23 +47,6 @@
     nav ul li a {
       font-weight: 600;
       text-transform: uppercase;
-      color: var(--text-color);
-      transition: color 0.3s;
-      text-decoration: none;
-    }
-    nav ul li a:hover {
-      color: var(--btn-hover);
-    }
-    .toggle-theme {
-      cursor: pointer;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--btn-bg);
-      transition: color 0.3s;
-    }
-    .toggle-theme:hover {
-      color: var(--btn-hover);
     }
     .hero {
       display: flex;
@@ -81,15 +54,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 4rem 2rem;
-      background-color: var(--bg-color);
-      min-height: 90vh;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a1a, #121212);
+      min-height: 100vh;
       position: relative;
       overflow: hidden;
-      transition: background-color 0.3s;
     }
     .hero img {
-      width: 200px;
+      width: 150px;
       border-radius: 50%;
       margin-bottom: 1.5rem;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
@@ -100,12 +72,12 @@
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
     }
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       font-weight: 700;
       margin: 0 0 1rem;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 0.15em solid var(--btn-bg);
+      border-right: 0.15em solid #00adb5;
       max-width: fit-content;
       animation: typing 3s steps(20) forwards, blink 0.75s step-end infinite;
     }
@@ -118,25 +90,24 @@
     }
     .hero p {
       margin-bottom: 2rem;
-      font-size: 1.2rem;
-      color: #777;
+      font-size: 1rem;
+      color: #ccc;
       opacity: 0;
       animation: fadeIn 2s 1s forwards;
     }
     .btn {
       display: inline-block;
       padding: 0.8rem 1.5rem;
-      background-color: var(--btn-bg);
+      background-color: #00adb5;
       color: #fff;
       font-weight: 600;
       border-radius: 50px;
       transition: background-color 0.3s;
       opacity: 0;
       animation: fadeIn 2s 1.5s forwards;
-      text-decoration: none;
     }
     .btn:hover {
-      background-color: var(--btn-hover);
+      background-color: #ff5722;
     }
     @keyframes fadeIn {
       from {
@@ -151,40 +122,39 @@
     .grid-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
       padding: 0 1rem;
     }
     .project-card, .interest-card {
-      padding: 1.5rem;
-      background-color: var(--card-bg);
+      padding: 1rem;
+      background-color: #222831;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s;
     }
     .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
     }
     #contact {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 2rem 1rem;
     }
     footer {
       text-align: center;
-      padding: 1rem 2rem;
-      background-color: var(--header-bg);
-      transition: background-color 0.3s;
+      padding: 1rem;
+      background-color: #121212;
     }
     .scroll-to-top {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--btn-bg);
+      bottom: 1rem;
+      right: 1rem;
+      background-color: #00adb5;
       color: #fff;
       border: none;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -194,7 +164,7 @@
       display: none;
     }
     .scroll-to-top:hover {
-      background-color: var(--btn-hover);
+      background-color: #ff5722;
     }
     .icon {
       margin-right: 0.5rem;
@@ -202,9 +172,33 @@
     .projects h2, .interests h2 {
       text-align: center;
     }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+      header {
+        flex-wrap: wrap;
+        text-align: center;
+      }
+      .grid-container {
+        gap: 1rem;
+      }
+      .project-card, .interest-card {
+        padding: 0.8rem;
+      }
+    }
   </style>
 </head>
-<body data-theme="dark">
+<body>
   <header>
     <div class="logo">RB</div>
     <nav>
@@ -216,11 +210,9 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme">
-      <i class="fas fa-moon"></i>
-    </button>
   </header>
 
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <img src="images/profile.jpg" alt="Robert Billings">
     <h1>Hi, I'm <span>Robert.</span></h1>
@@ -229,6 +221,26 @@
     <a href="#projects" class="btn">View My Work</a>
   </section>
 
+  <!-- JavaScript for Typing Effect -->
+  <script>
+    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
+    let index = 0;
+
+    function typeEffect() {
+      const dynamicText = document.getElementById("dynamic-text");
+      dynamicText.style.animation = "none";
+      setTimeout(() => {
+        dynamicText.style.animation = "";
+        dynamicText.textContent = roles[index];
+        index = (index + 1) % roles.length;
+      }, 10);
+    }
+
+    setInterval(typeEffect, 3000); // Change text every 3 seconds
+    typeEffect(); // Initialize typing effect
+  </script>
+
+  <!-- Projects Section -->
   <section id="projects" class="projects">
     <h2><i class="fas fa-laptop-code icon"></i>Projects</h2>
     <div class="grid-container">
@@ -247,6 +259,7 @@
     </div>
   </section>
 
+  <!-- Interests Section -->
   <section id="interests" class="interests">
     <h2><i class="fas fa-heart icon"></i>Interests</h2>
     <div class="grid-container">
@@ -265,6 +278,7 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2><i class="fas fa-envelope icon"></i>Contact Me</h2>
     <p>Let's connect and create something amazing together.</p>
@@ -273,12 +287,17 @@
     <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2024 Robert Billings. Built with ❤️</p>
   </footer>
 
+  <!-- Scroll-to-Top Button -->
   <button class="scroll-to-top" id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- JavaScript -->
   <script>
+    // Scroll-to-Top Button Functionality
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
     window.addEventListener("scroll", () => {
@@ -292,39 +311,6 @@
     scrollToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
-
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    function setTheme(theme) {
-      body.setAttribute('data-theme', theme);
-      themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-      localStorage.setItem('theme', theme);
-    }
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-
-    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
-    let index = 0;
-
-    function typeEffect() {
-      const dynamicText = document.getElementById("dynamic-text");
-      dynamicText.style.animation = "none";
-      setTimeout(() => {
-        dynamicText.style.animation = "";
-        dynamicText.textContent = roles[index];
-        index = (index + 1) % roles.length;
-      }, 10);
-    }
-
-    setInterval(typeEffect, 3000);
-    typeEffect();
   </script>
 </body>
 </html>
