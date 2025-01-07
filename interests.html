@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interests of Robert Billings, showcasing personal hobbies and passions.">
+  <title>Interests | Robert Billings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #fff;
+      --header-bg: #121212;
+      --card-bg: #1b2a41;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+      --btn-text: #ffffff;
+    }
+    [data-theme="light"] {
+      --bg-color: #eaeaea;
+      --text-color: #333;
+      --header-bg: #f5f5f5;
+      --card-bg: #dcdcdc;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+      --btn-text: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--header-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--btn-bg);
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav ul li a.active {
+      border-bottom: 2px solid var(--btn-bg);
+    }
+    nav ul li a:hover {
+      color: var(--btn-hover);
+    }
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--btn-bg);
+      transition: color 0.3s;
+    }
+    .theme-toggle:hover {
+      color: var(--btn-hover);
+    }
+    .interests {
+      padding: 4rem 2rem;
+      text-align: center;
+      flex: 1;
+    }
+    .interests h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .interest-card {
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .interest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .interest-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .interest-card h3 {
+      margin: 0.5rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background-color: var(--header-bg);
+      margin-top: auto;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="logo">RB</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="interests.html" class="active">Interests</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <section class="interests">
+    <h2>Interests</h2>
+    <div class="grid-container">
+      <div class="interest-card">
+        <img src="images/interest1.jpg" alt="Photography">
+        <h3>Photography</h3>
+        <p>Capturing moments and telling stories through a lens.</p>
+      </div>
+      <div class="interest-card">
+        <img src="images/interest2.jpg" alt="Travel">
+        <h3>Travel</h3>
+        <p>Exploring new cultures, cuisines, and experiences around the world.</p>
+      </div>
+      <div class="interest-card">
+        <img src="images/interest3.jpg" alt="Running">
+        <h3>Running</h3>
+        <p>Staying fit and clearing the mind through long-distance runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Robert Billings. Built with ❤️</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    function setTheme(theme) {
+      body.setAttribute('data-theme', theme);
+      themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      localStorage.setItem('theme', theme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+  </script>
+</body>
+</html>
