@@ -15,6 +15,7 @@
       --card-bg: #1b2a41;
       --btn-bg: #007bff;
       --btn-hover: #0056b3;
+      --btn-text: #ffffff;
     }
     [data-theme="light"] {
       --bg-color: #eaeaea;
@@ -23,6 +24,7 @@
       --card-bg: #dcdcdc;
       --btn-bg: #007bff;
       --btn-hover: #0056b3;
+      --btn-text: #ffffff;
     }
     body {
       margin: 0;
@@ -104,10 +106,6 @@
       transform: scale(1.1);
       box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
     }
-    .project-card:hover, .interest-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    }
     .hero h1 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -136,16 +134,18 @@
       display: inline-block;
       padding: 0.8rem 1.5rem;
       background-color: var(--btn-bg);
-      color: #fff;
+      color: var(--btn-text) !important; /* Force the button text colour */
       font-weight: 600;
       border-radius: 50px;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, color 0.3s;
       opacity: 0;
       animation: fadeIn 2s 1.5s forwards;
       text-decoration: none;
     }
+
     .btn:hover {
       background-color: var(--btn-hover);
+      color: var(--btn-text);
     }
     @keyframes fadeIn {
       from {
@@ -170,20 +170,11 @@
       border-radius: 10px;
       text-align: left;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, background-color 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover, .interest-card:hover {
       transform: translateY(-10px);
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     }
     .projects, .interests {
       padding: 6rem 2rem;
@@ -204,26 +195,38 @@
     }
     .contact-container {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      justify-content: center;
+      align-items: center;
       gap: 2rem;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
-    .contact-details, .linkedin-feed {
+    .contact-details {
       flex: 1;
       background-color: var(--card-bg);
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
-    .contact-details h3, .linkedin-feed h3 {
+    .contact-details h3 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    .contact-details p, .linkedin-feed p {
+    .contact-details p {
       margin-bottom: 0.5rem;
       line-height: 1.5;
+    }
+    .contact-details p i {
+      margin-right: 0.5rem;
+      color: var(--btn-bg);
+    }
+    .contact-details a {
+      color: var(--btn-bg);
+      text-decoration: none;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
     }
     footer {
       text-align: center;
@@ -251,58 +254,6 @@
     }
     .scroll-to-top:hover {
       background-color: var(--btn-hover);
-    }
-    .icon {
-      margin-right: 0.5rem;
-    }
-    .linkedin-feed iframe {
-      margin: auto;
-      display: block;
-      width: 100%;
-      border: none;
-      height: 300px;
-    }
-    @media (max-width: 768px) {
-      .contact-container {
-        flex-direction: column;
-      }
-      .linkedin-feed iframe {
-        height: 100vh; /* Full-page height for mobile */
-      }
-      .hero {
-        padding: 3rem 1rem;
-      }
-      .hero h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-      .btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-      .grid-container {
-        gap: 1rem;
-      }
-      .project-card, .interest-card {
-        padding: 1rem;
-      }
-      .hero img {
-        width: 120px;
-      }
-      footer {
-        padding: 0.5rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.5rem;
-      }
-      .project-card, .interest-card {
-        padding: 0.8rem;
-      }
-      .btn {
-        padding: 0.5rem 1rem;
-      }
     }
   </style>
 </head>
@@ -377,14 +328,10 @@
     <div class="contact-container">
       <div class="contact-details">
         <h3>Get in Touch</h3>
-        <p>Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">LinkedIn</a></p>
-        <p>GitHub: <a href="https://github.com/robertjgvv" target="_blank">GitHub</a></p>
-      </div>
-      <div class="linkedin-feed">
-        <h3>Latest from LinkedIn</h3>
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:1234567890123456789" height="300" frameborder="0" allowfullscreen="" title="Embedded LinkedIn Feed"></iframe>
-        <p><a href="https://www.linkedin.com/in/robert--billings/" target="_blank">View Full LinkedIn Profile</a></p>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">Robert Billings</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/robertjgvv" target="_blank">Robert's GitHub</a></p>
+        <a href="https://www.linkedin.com/in/robert--billings/" target="_blank" class="btn">View LinkedIn Profile</a>
       </div>
     </div>
   </section>
