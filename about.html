@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn more about Robert Billings: education, work experience, and achievements.">
+  <title>About | Robert Billings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #0f0f0f;
+      --text-color: #fff;
+      --header-bg: #121212;
+      --card-bg: #1b2a41;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+      --btn-text: #ffffff;
+    }
+    [data-theme="light"] {
+      --bg-color: #eaeaea;
+      --text-color: #333;
+      --header-bg: #f5f5f5;
+      --card-bg: #dcdcdc;
+      --btn-bg: #007bff;
+      --btn-hover: #0056b3;
+      --btn-text: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--header-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--btn-bg);
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav ul li a.active {
+      border-bottom: 2px solid var(--btn-bg);
+    }
+    nav ul li a:hover {
+      color: var(--btn-hover);
+    }
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--btn-bg);
+      transition: color 0.3s;
+    }
+    .theme-toggle:hover {
+      color: var(--btn-hover);
+    }
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      flex: 1;
+    }
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .about-section {
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: var(--btn-hover);
+    }
+    footer {
+      background-color: var(--header-bg);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="logo">RB</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <div class="about-section">
+      <h3>Education</h3>
+      <p>Bachelor of Science in Software Engineering, Penn State University</p>
+    </div>
+    <div class="about-section">
+      <h3>Work Experience</h3>
+      <p>Controls Engineer at General Motors</p>
+    </div>
+    <div class="about-section">
+      <h3>Resume</h3>
+      <a href="resume.pdf" target="_blank" class="btn">Download My Resume</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Robert Billings. Built with ❤️</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    function setTheme(theme) {
+      body.setAttribute('data-theme', theme);
+      themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      localStorage.setItem('theme', theme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+  </script>
+</body>
+</html>
