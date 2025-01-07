@@ -102,6 +102,18 @@
     .about-section {
       margin-bottom: 2rem;
     }
+    .about-group {
+      background-color: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1rem;
+    }
+    .about-group h4 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: var(--btn-bg);
+    }
     .btn {
       display: inline-block;
       padding: 0.8rem 1.5rem;
@@ -128,13 +140,13 @@
         <nav>
             <ul>
               <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-              <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+              <li><a href="about.html" class="active"><i class="fas fa-user"></i> About</a></li>
               <li><a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
               <li><a href="interests.html"><i class="fas fa-heart"></i> Interests</a></li>
               <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </nav>
-    <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fas fa-moon"></i>
     </button>
 </header>
@@ -142,16 +154,42 @@
   <section class="about">
     <h2>About Me</h2>
     <div class="about-section">
+      <h3>Personal Life</h3>
+      <p>Born and raised in Dallas, TX, I attended Lake Forest Academy in Chicago, IL for high school. Currently, I am pursuing a Bachelor of Science in Software Engineering at Penn State University.</p>
+    </div>
+    <div class="about-section">
       <h3>Education</h3>
-      <p>Bachelor of Science in Software Engineering, Penn State University</p>
+      <div class="about-group">
+        <h4>Penn State University</h4>
+        <p>Bachelor of Science in Software Engineering (Expected December 2025)</p>
+      </div>
+      <div class="about-group">
+        <h4>Universidad Carlos III de Madrid</h4>
+        <p>Studied abroad, focusing on Spanish language and culture (2022-2023).</p>
+      </div>
     </div>
     <div class="about-section">
       <h3>Work Experience</h3>
-      <p>Controls Engineer at General Motors</p>
+      <div class="about-group">
+        <h4>Controls Engineer Intern, General Motors</h4>
+        <p>Contributed to modernizing legacy systems, saving millions annually, and enhancing operational efficiency (2023-Present).</p>
+      </div>
+      <div class="about-group">
+        <h4>Sales Associate, Bluelink Wireless</h4>
+        <p>Top salesperson in the region, consistently exceeding acquisition quotas (2022).</p>
+      </div>
+      <div class="about-group">
+        <h4>Student Manager, Penn State</h4>
+        <p>Oversaw and coordinated schedules for over 100 students (2021-2022).</p>
+      </div>
+    </div>
+    <div class="about-section">
+      <h3>Activities</h3>
+      <p>Active participant in Penn State's THON, Nittany Motorsports, and the National Society of Hispanic Engineers. Achieved the rank of Eagle Scout and engaged in various campus organizations.</p>
     </div>
     <div class="about-section">
       <h3>Resume</h3>
-      <a href="resume.pdf" target="_blank" class="btn">Download My Resume</a>
+      <a href="resources/resume.pdf" target="_blank" class="btn">Download My Resume</a>
     </div>
   </section>
 
