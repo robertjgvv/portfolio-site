@@ -130,16 +130,11 @@
       opacity: 0;
       animation: fadeIn 2s 1s forwards;
     }
-    .dynamic-text {
-        font-size: 1.3rem;
-        text-align: center;
-    }
-
     .btn {
       display: inline-block;
       padding: 0.8rem 1.5rem;
       background-color: var(--btn-bg);
-      color: var(--btn-text) !important;
+      color: var(--btn-text) !important; /* Force the button text colour */
       font-weight: 600;
       border-radius: 50px;
       transition: background-color 0.3s, color 0.3s;
@@ -162,11 +157,103 @@
         transform: translateY(0);
       }
     }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .project-card, .interest-card {
+      padding: 2rem;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover, .interest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .projects, .interests {
+      padding: 6rem 2rem;
+    }
+    .projects h2, .interests h2 {
+      text-align: center;
+    }
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    #contact {
+      text-align: center;
+      padding: 6rem 2rem;
+      background-color: var(--header-bg);
+      color: var(--text-color);
+    }
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .contact-details {
+      flex: 1;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .contact-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .contact-details p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .contact-details p i {
+      margin-right: 0.5rem;
+      color: var(--btn-bg);
+    }
+    .contact-details a {
+      color: var(--btn-bg);
+      text-decoration: none;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
     footer {
       text-align: center;
       padding: 1rem 2rem;
       background-color: var(--header-bg);
       transition: background-color 0.3s;
+    }
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--btn-bg);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: none;
+    }
+    .scroll-to-top:hover {
+      background-color: var(--btn-hover);
     }
   </style>
 </head>
@@ -193,6 +280,62 @@
     <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
     <a href="#projects" class="btn">View My Work</a>
   </section>
+
+  <section id="projects" class="projects">
+    <h2><i class="fas fa-laptop-code icon"></i>Projects</h2>
+    <div class="grid-container">
+      <div class="project-card">
+        <img src="images/project1.jpg" alt="Personal Finance App">
+        <h3>Personal Finance App</h3>
+        <p>A tool to manage and track your expenses efficiently.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/project2.jpg" alt="Airline Reservation System">
+        <h3>Airline Reservation System</h3>
+        <p>A streamlined system for booking and managing flights.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/project3.jpg" alt="Portfolio Website">
+        <h3>Portfolio Website</h3>
+        <p>Designed and built this responsive, interactive portfolio website.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests" class="interests">
+    <h2><i class="fas fa-heart icon"></i>Interests</h2>
+    <div class="grid-container">
+      <div class="interest-card">
+        <img src="images/photography.jpg" alt="Photography">
+        <h3>Photography</h3>
+        <p>Capturing moments, from landscapes to events, is my creative escape.</p>
+      </div>
+      <div class="interest-card">
+        <img src="images/music.jpg" alt="Music">
+        <h3>Music</h3>
+        <p>Exploring genres, playing instruments, and discovering new sounds.</p>
+      </div>
+      <div class="interest-card">
+        <img src="images/running.jpg" alt="Running">
+        <h3>Running</h3>
+        <p>Staying active and pushing my limits with regular runs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2><i class="fas fa-envelope icon"></i>Contact Me</h2>
+    <div class="contact-container">
+      <div class="contact-details">
+        <h3>Get in Touch</h3>
+        <p><i class="fas fa-envelope"></i> Email: <a href="mailto:rylenbillings@gmail.com">rylenbillings@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/robert--billings/" target="_blank">Robert Billings</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/robertjgvv" target="_blank">Robert's GitHub</a></p>
+        <a href="https://www.linkedin.com/in/robert--billings/" target="_blank" class="btn">View LinkedIn Profile</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2024 Robert Billings. Built with ❤️</p>
   </footer>
@@ -245,6 +388,29 @@
 
     setInterval(typeEffect, 3000);
     typeEffect();
+
+    // Scrollspy for active navigation link
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
