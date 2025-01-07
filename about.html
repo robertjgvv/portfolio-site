@@ -16,6 +16,7 @@
       --btn-bg: #007bff;
       --btn-hover: #0056b3;
       --btn-text: #ffffff;
+      --accent-color: #ffc107;
     }
     [data-theme="light"] {
       --bg-color: #eaeaea;
@@ -25,6 +26,7 @@
       --btn-bg: #007bff;
       --btn-hover: #0056b3;
       --btn-text: #ffffff;
+      --accent-color: #ff8c00;
     }
     body {
       margin: 0;
@@ -103,16 +105,30 @@
       margin-bottom: 2rem;
     }
     .about-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: var(--card-bg);
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       margin-bottom: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .about-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .about-group h4 {
-      margin: 0.5rem 0;
+      margin: 0;
       font-size: 1.3rem;
-      color: var(--btn-bg);
+      color: var(--accent-color);
+    }
+    .about-group p {
+      margin: 0.5rem 0 0;
+      flex-grow: 1;
+      padding-left: 1rem;
+      text-align: left;
     }
     .btn {
       display: inline-block;
@@ -171,16 +187,16 @@
     <div class="about-section">
       <h3>Work Experience</h3>
       <div class="about-group">
-        <h4>Controls Engineer Intern, General Motors</h4>
-        <p>Contributed to modernizing legacy systems, saving millions annually, and enhancing operational efficiency (2023-Present).</p>
+        <h4>Controls Engineer Intern</h4>
+        <p>General Motors | Enhanced automation and modernized systems (2023-Present)</p>
       </div>
       <div class="about-group">
-        <h4>Sales Associate, Bluelink Wireless</h4>
-        <p>Top salesperson in the region, consistently exceeding acquisition quotas (2022).</p>
+        <h4>Sales Associate</h4>
+        <p>Bluelink Wireless | Consistently exceeded sales targets (2022)</p>
       </div>
       <div class="about-group">
-        <h4>Student Manager, Penn State</h4>
-        <p>Oversaw and coordinated schedules for over 100 students (2021-2022).</p>
+        <h4>Student Manager</h4>
+        <p>Penn State | Managed a team of over 100 students (2021-2022)</p>
       </div>
     </div>
     <div class="about-section">
