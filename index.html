@@ -88,8 +88,8 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 1rem 0; /* Adjusted padding to fit viewport */
-      max-height: 100vh; /* Ensures no scrolling on the page */
+      padding: 1rem 0;
+      max-height: 100vh;
       background-color: var(--bg-color);
       min-height: 90vh;
       position: relative;
@@ -114,26 +114,27 @@
       white-space: nowrap;
       overflow: hidden;
       border-right: 0.15em solid var(--btn-bg);
+      animation: typing-h1 4s steps(30, end), blinking-cursor 0.75s step-end infinite;
+      display: inline-block;
       max-width: fit-content;
-      animation: typing 3s steps(20) forwards, blink 0.75s step-end infinite;
     }
-    @keyframes typing {
+
+    @keyframes typing-h1 {
       from { width: 0; }
       to { width: 100%; }
     }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    .hero p {
-      margin-bottom: 2rem;
-      font-size: 1.2rem;
-      color: #555;
-      opacity: 0;
-      animation: fadeIn 2s 1s forwards;
-    }
+
     .dynamic-text {
-        font-size: 1.3rem;
-        text-align: center;
+      font-size: 1.3rem;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 0.15em solid var(--btn-bg);
+      animation: blinking-cursor 0.75s step-end infinite;
+    }
+
+    @keyframes blinking-cursor {
+      50% { border-color: transparent; }
     }
 
     .btn {
@@ -144,24 +145,12 @@
       font-weight: 600;
       border-radius: 50px;
       transition: background-color 0.3s, color 0.3s;
-      opacity: 0;
-      animation: fadeIn 2s 1.5s forwards;
       text-decoration: none;
     }
 
     .btn:hover {
       background-color: var(--btn-hover);
       color: var(--btn-text);
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
     footer {
       text-align: center;
@@ -190,9 +179,9 @@
   <section id="about" class="hero">
     <img src="images/profile.jpg" alt="Robert Billings">
     <h1>Hi, I'm <span>Robert.</span></h1>
-    <div id="dynamic-text" class="dynamic-text">Software Engineer</div>
+    <div id="dynamic-text" class="dynamic-text"></div>
     <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
-    <a href="#projects" class="btn">View My Work</a>
+    <a href="about.html" class="btn">Learn More About Me</a>
   </section>
   <footer>
     <p>&copy; 2024 Robert Billings. Built with ❤️</p>
@@ -234,18 +223,35 @@
     const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
     let index = 0;
 
-    function typeEffect() {
+    function typeAndDeleteEffect() {
       const dynamicText = document.getElementById("dynamic-text");
-      dynamicText.style.animation = "none";
-      setTimeout(() => {
-        dynamicText.style.animation = "";
-        dynamicText.textContent = roles[index];
-        index = (index + 1) % roles.length;
-      }, 10);
+      let charIndex = 0;
+      let isTyping = true;
+
+      function type() {
+        if (isTyping && charIndex < roles[index].length) {
+          dynamicText.textContent += roles[index].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+        } else if (!isTyping && charIndex > 0) {
+          dynamicText.textContent = roles[index].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(type, 100);
+        } else {
+          isTyping = !isTyping;
+          if (!isTyping) {
+            setTimeout(type, 1000);
+          } else {
+            index = (index + 1) % roles.length;
+            setTimeout(type, 500);
+          }
+        }
+      }
+
+      type();
     }
 
-    setInterval(typeEffect, 3000);
-    typeEffect();
+    typeAndDeleteEffect();
   </script>
 </body>
 </html>
