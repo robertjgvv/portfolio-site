@@ -124,14 +124,16 @@
       to { width: 100%; }
     }
 
-    .dynamic-text {
-      font-size: 1.3rem;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 0.15em solid var(--btn-bg);
-      animation: blinking-cursor 0.75s step-end infinite;
-    }
+  .dynamic-text {
+    font-size: 1.3rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid var(--btn-bg);
+    animation: blinking-cursor 0.75s step-end infinite;
+    min-height: 1.6em;
+  }
+
 
     @keyframes blinking-cursor {
       50% { border-color: transparent; }
