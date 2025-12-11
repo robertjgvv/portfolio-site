@@ -1,260 +1,1134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Robert Billings, a Software Engineer specialising in modern, interactive digital solutions.">
-  <title>Robert Billings | Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #0f0f0f;
-      --text-color: #fff;
-      --header-bg: #121212;
-      --card-bg: #1b2a41;
-      --btn-bg: #007bff;
-      --btn-hover: #0056b3;
-      --btn-text: #ffffff;
-    }
-    [data-theme="light"] {
-      --bg-color: #eaeaea;
-      --text-color: #333;
-      --header-bg: #f5f5f5;
-      --card-bg: #dcdcdc;
-      --btn-bg: #007bff;
-      --btn-hover: #0056b3;
-      --btn-text: #ffffff;
-    }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: var(--header-bg);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--btn-bg);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-    }
-    nav ul li a {
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--text-color);
-      transition: color 0.3s;
-      text-decoration: none;
-    }
-    nav ul li a.active {
-      border-bottom: 2px solid var(--btn-bg);
-    }
-    nav ul li a:hover {
-      color: var(--btn-hover);
-    }
-    .toggle-theme {
-      cursor: pointer;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--btn-bg);
-      transition: color 0.3s;
-    }
-    .toggle-theme:hover {
-      color: var(--btn-hover);
-    }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 1rem 0;
-      max-height: 100vh;
-      background-color: var(--bg-color);
-      min-height: 90vh;
-      position: relative;
-      overflow: hidden;
-      transition: background-color 0.3s;
-    }
-    .hero img {
-      width: 150px;
-      border-radius: 50%;
-      margin-bottom: 1.5rem;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hero img:hover {
-      transform: scale(1.1);
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8);
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 0.15em solid var(--btn-bg);
-      animation: typing-h1 4s steps(30, end), blinking-cursor 0.75s step-end infinite;
-      display: inline-block;
-      max-width: fit-content;
-    }
-
-    @keyframes typing-h1 {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-  .dynamic-text {
-    font-size: 1.3rem;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.15em solid var(--btn-bg);
-    animation: blinking-cursor 0.75s step-end infinite;
-    min-height: 1.6em;
-  }
-
-
-    @keyframes blinking-cursor {
-      50% { border-color: transparent; }
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background-color: var(--btn-bg);
-      color: var(--btn-text) !important;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: background-color 0.3s, color 0.3s;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background-color: var(--btn-hover);
-      color: var(--btn-text);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem 2rem;
-      background-color: var(--header-bg);
-      transition: background-color 0.3s;
-    }
-  </style>
-</head>
-<body data-theme="dark">
-<header>
-  <div class="logo">RB</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
-        <li><a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
-        <li><a href="interests.html"><i class="fas fa-heart"></i> Interests</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
-    </nav>
-      <button class="toggle-theme" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-</header>
-
-  <section id="about" class="hero">
-    <img src="images/profile.jpg" alt="Robert Billings">
-    <h1>Hi, I'm <span>Robert.</span></h1>
-    <div id="dynamic-text" class="dynamic-text"></div>
-    <p>A Software Engineer building modern, engaging, and interactive digital experiences.</p>
-    <a href="about.html" class="btn">Learn More About Me</a>
-  </section>
-  <footer>
-    <p>&copy; 2024 Robert Billings. Built with ❤️</p>
-  </footer>
-
-  <button class="scroll-to-top" id="scrollToTopBtn"><i class="fas fa-arrow-up"></i></button>
-  <script>
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollToTopBtn.style.display = "flex";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    });
-
-    scrollToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    function setTheme(theme) {
-      body.setAttribute('data-theme', theme);
-      themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-      localStorage.setItem('theme', theme);
-    }
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-    });
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-
-    const roles = ["Software Engineer", "Creative Thinker", "Problem Solver"];
-    let index = 0;
-
-    function typeAndDeleteEffect() {
-      const dynamicText = document.getElementById("dynamic-text");
-      let charIndex = 0;
-      let isTyping = true;
-
-      function type() {
-        if (isTyping && charIndex < roles[index].length) {
-          dynamicText.textContent += roles[index].charAt(charIndex);
-          charIndex++;
-          setTimeout(type, 100);
-        } else if (!isTyping && charIndex > 0) {
-          dynamicText.textContent = roles[index].substring(0, charIndex - 1);
-          charIndex--;
-          setTimeout(type, 100);
-        } else {
-          isTyping = !isTyping;
-          if (!isTyping) {
-            setTimeout(type, 1000);
-          } else {
-            index = (index + 1) % roles.length;
-            setTimeout(type, 500);
-          }
+    <meta charset="UTF-8" />
+    <title>Robert A. Billings | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg-hero: #f3f5fb;
+            --bg-page: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --accent: #2563eb;
+            --accent-soft: #dbeafe;
+            --border-subtle: #e5e7eb;
+            --card-bg: #ffffff;
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.10);
+            --radius-xl: 24px;
+            --radius-lg: 18px;
+            --radius-pill: 999px;
+            --max-width: 1080px;
         }
-      }
 
-      type();
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text-main);
+            background: var(--bg-page);
+            line-height: 1.6;
+        }
+
+        main {
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* ---------------- HERO ---------------- */
+
+        .hero-wrap {
+            position: relative;
+            background: radial-gradient(circle at top left, #e0ecff 0, #f3f5fb 40%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 32px 0 72px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+            gap: 48px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.0rem;
+            color: var(--text-muted);
+            max-width: 30rem;
+            margin-bottom: 22px;
+        }
+
+        .hero-roles {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 30px rgba(148, 163, 184, 0.28);
+            margin-bottom: 18px;
+        }
+
+        .hero-roles-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+        }
+
+        .hero-roles-current {
+            font-family: "Space Grotesk", system-ui, sans-serif;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--accent);
+            transition: opacity 0.18s ease;
+        }
+
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .chip {
+            font-size: 0.78rem;
+            padding: 6px 12px;
+            border-radius: var(--radius-pill);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            padding: 10px 18px;
+            border-radius: var(--radius-pill);
+            border: none;
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 14px 35px rgba(37, 99, 235, 0.4);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 20px 45px rgba(37, 99, 235, 0.5);
+            background: #1d4ed8;
+        }
+
+        .btn-ghost {
+            padding: 10px 18px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            background: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-soft);
+            padding: 22px 22px 18px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            backdrop-filter: blur(14px);
+        }
+
+        .hero-card-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .hero-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        .hero-badge {
+            font-size: 0.7rem;
+            padding: 4px 9px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--accent-soft);
+            background: var(--accent-soft);
+            color: #1d4ed8;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .metric {
+            padding: 10px 10px 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            background: #f9fafb;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-family: "Space Grotesk";
+            font-size: 1.02rem;
+            font-weight: 600;
+        }
+
+        .metric-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .hero-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .hero-taglist {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .hero-tag {
+            padding: 3px 7px;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #4338ca;
+        }
+
+        .hero-note {
+            font-size: 0.7rem;
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            border-radius: 999px;
+            opacity: 0.45;
+            pointer-events: none;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .shape-blue {
+            width: 210px;
+            height: 210px;
+            background: radial-gradient(circle, rgba(59,130,246,0.35), transparent 60%);
+            top: -60px;
+            right: -80px;
+        }
+
+        .shape-purple {
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(129,140,248,0.4), transparent 60%);
+            bottom: 60px;
+            right: 10%;
+        }
+
+        .shape-outline {
+            width: 220px;
+            height: 220px;
+            border-radius: 40px;
+            border: 1px dashed rgba(148,163,184,0.6);
+            top: -40px;
+            left: -90px;
+        }
+
+        .scroll-cue {
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .scroll-cue-line {
+            width: 1px;
+            height: 26px;
+            background: rgba(156, 163, 175, 0.7);
+        }
+
+        /* --------------- SECTIONS --------------- */
+
+        section {
+            padding: 56px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-family: "Space Grotesk";
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 400px;
+        }
+
+        /* Snapshot */
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .snapshot-card {
+            border-radius: var(--radius-lg);
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            padding: 14px 16px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.03);
+        }
+
+        .snapshot-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .snapshot-main {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .snapshot-sub {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            border-radius: var(--radius-lg);
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+            border-color: rgba(148, 163, 184, 0.7);
+        }
+
+        .project-thumbnail {
+            height: 120px;
+            background: radial-gradient(circle at top, #e0f2fe, #eff6ff 40%, #f9fafb);
+        }
+
+        .project-body {
+            padding: 14px 16px 12px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 4px 9px;
+            border-radius: var(--radius-pill);
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .project-title {
+            font-family: "Space Grotesk";
+            font-size: 0.98rem;
+            margin-bottom: 4px;
+        }
+
+        .project-text {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .project-link {
+            font-size: 0.8rem;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Experience timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+            margin-top: 8px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(148,163,184,0.45), rgba(148,163,184,0.2));
+        }
+
+        .timeline-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            padding: 14px 16px 12px;
+            margin-bottom: 14px;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.03);
+        }
+
+        .timeline-card::before {
+            content: "";
+            position: absolute;
+            left: -17px;
+            top: 18px;
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            border: 2px solid #ffffff;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-role {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .timeline-company {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .timeline-list {
+            margin-top: 6px;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-list li {
+            margin-left: 16px;
+            margin-bottom: 3px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skills-card {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            padding: 14px 16px 12px;
+        }
+
+        .skills-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-badge {
+            font-size: 0.78rem;
+            padding: 5px 10px;
+            border-radius: var(--radius-pill);
+            background: #f3f4ff;
+        }
+
+        /* Leadership */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .lead-card {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            padding: 14px 16px 12px;
+        }
+
+        .lead-role {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .lead-org {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .lead-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .lead-text {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact */
+        .contact {
+            padding-bottom: 40px;
+        }
+
+        .contact-inner {
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            background: #f9fafb;
+            padding: 22px 20px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-text-main {
+            font-family: "Space Grotesk";
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-text-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-link {
+            font-size: 0.86rem;
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            background: #ffffff;
+        }
+
+        footer {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding: 10px 20px 24px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 880px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-right {
+                order: -1;
+            }
+            .snapshot-grid,
+            .projects-grid,
+            .skills-grid,
+            .leadership-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .page {
+                padding: 0 16px 60px;
+            }
+            .timeline {
+                padding-left: 20px;
+            }
+            .timeline::before {
+                left: 6px;
+            }
+            .timeline-card::before {
+                left: -19px;
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="hero-wrap" id="top">
+        <div class="page hero">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-label">Robert A. Billings</div>
+                    <h1 class="hero-title">
+                        Engineering clear, reliable systems from factory floor to frontend.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Software Engineering student and Manufacturing Electrical &amp; Controls Engineer,
+                        bringing automation, embedded systems, and modern software together for real production use.
+                    </p>
+
+                    <div class="hero-roles">
+                        <div class="hero-roles-label">Currently</div>
+                        <div class="hero-roles-current" id="role-rotator">Software Engineer</div>
+                    </div>
+
+                    <div class="hero-chips">
+                        <span class="chip">Detroit, Michigan</span>
+                        <span class="chip">Penn State · Software Engineering</span>
+                        <span class="chip">General Motors · Manufacturing Engineering</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">
+                            View selected work
+                            <span>↓</span>
+                        </button>
+                        <a href="#contact">
+                            <button class="btn-ghost" type="button">
+                                Get in touch
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-card">
+                        <div class="hero-card-heading">
+                            <div class="hero-card-title">
+                                <span class="hero-dot"></span>
+                                Live snapshot
+                            </div>
+                            <span class="hero-badge">Engineering &amp; automation</span>
+                        </div>
+
+                        <div class="hero-metrics">
+                            <div class="metric">
+                                <div class="metric-label">Current role</div>
+                                <div class="metric-value">GM Manufacturing</div>
+                                <div class="metric-sub">PLC, HMI, connectivity</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Degree</div>
+                                <div class="metric-value">Penn State</div>
+                                <div class="metric-sub">Software Engineering</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Focus areas</div>
+                                <div class="metric-value">Automation</div>
+                                <div class="metric-sub">PLC · CAN · embedded</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">Also exploring</div>
+                                <div class="metric-value">Web &amp; UX</div>
+                                <div class="metric-sub">Clean, modern interfaces</div>
+                            </div>
+                        </div>
+
+                        <div class="hero-card-footer">
+                            <div class="hero-taglist">
+                                <span class="hero-tag">Rockwell &amp; Siemens</span>
+                                <span class="hero-tag">Raspberry Pi</span>
+                                <span class="hero-tag">Java · C++ · Python · JS</span>
+                            </div>
+                            <div class="hero-note">
+                                Designed for production, not just the lab.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parallax shapes -->
+            <div class="shape shape-blue" data-parallax-speed="0.3"></div>
+            <div class="shape shape-purple" data-parallax-speed="0.45"></div>
+            <div class="shape shape-outline" data-parallax-speed="0.2"></div>
+
+            <div class="scroll-cue">
+                <span>Scroll to explore</span>
+                <div class="scroll-cue-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <!-- Snapshot -->
+        <section id="about">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Snapshot</div>
+                    <h2 class="section-title">Where engineering meets real-world systems.</h2>
+                </div>
+                <p class="section-subtitle">
+                    Splitting time between modernising manufacturing at GM and finishing a Software Engineering degree, with a focus on dependable systems.
+                </p>
+            </div>
+            <div class="snapshot-grid">
+                <div class="snapshot-card">
+                    <div class="snapshot-label">Current</div>
+                    <div class="snapshot-main">Manufacturing Engineer · General Motors</div>
+                    <div class="snapshot-sub">
+                        Developing PLC and HMI logic, connectivity, and diagnostics for automation cells.
+                    </div>
+                </div>
+                <div class="snapshot-card">
+                    <div class="snapshot-label">Degree</div>
+                    <div class="snapshot-main">BSc Software Engineering · Penn State</div>
+                    <div class="snapshot-sub">
+                        Expected May 2026, with work that ranges from low-level systems to web applications.
+                    </div>
+                </div>
+                <div class="snapshot-card">
+                    <div class="snapshot-label">Focus</div>
+                    <div class="snapshot-main">Automation · Embedded · Web</div>
+                    <div class="snapshot-sub">
+                        From Rockwell PLCs and Siemens HMIs to CAN bus, Raspberry Pi, and clean frontend interfaces.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Selected work</div>
+                    <h2 class="section-title">Projects with real constraints and impact.</h2>
+                </div>
+                <p class="section-subtitle">
+                    A blend of manufacturing automation, embedded systems, and software, always with clarity and maintainability in mind.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Hardware</span>
+                            <span class="tag">PCB</span>
+                            <span class="tag">Diagnostics</span>
+                        </div>
+                        <h3 class="project-title">Cellular diagnostics modem for automation assets</h3>
+                        <p class="project-text">
+                            Custom PCB system providing cellular connectivity so critical equipment can be monitored and protected remotely.
+                        </p>
+                        <span class="project-link">Case study coming soon →</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Automation</span>
+                            <span class="tag">PLC</span>
+                            <span class="tag">HMI</span>
+                        </div>
+                        <h3 class="project-title">PLC and HMI modernisation for manufacturing lines</h3>
+                        <p class="project-text">
+                            Rockwell PLC and HMI logic to modernise legacy processes, increase uptime, and make diagnosis easier for operations teams.
+                        </p>
+                        <span class="project-link">More details soon →</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Embedded</span>
+                            <span class="tag">CAN</span>
+                            <span class="tag">Motorsport</span>
+                        </div>
+                        <h3 class="project-title">CAN bus upgrade for Formula E subsystem</h3>
+                        <p class="project-text">
+                            Adjusted CAN bus design and protection to improve reliability for competition runs and on-track conditions.
+                        </p>
+                        <span class="project-link">View technical notes →</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumbnail"></div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Nonprofit</span>
+                            <span class="tag">Remote teams</span>
+                        </div>
+                        <h3 class="project-title">World Campus Benefitting THON</h3>
+                        <p class="project-text">
+                            Leading a distributed executive team that contributes tens of thousands of dollars each year towards Penn State's THON total.
+                        </p>
+                        <span class="project-link">Organisation overview →</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience (timeline) -->
+        <section id="experience">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Experience</div>
+                    <h2 class="section-title">A path through manufacturing, tech, and people work.</h2>
+                </div>
+                <p class="section-subtitle">
+                    Roles that blend technical depth with communication and ownership.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-role">Manufacturing Engineer Intern</div>
+                            <div class="timeline-company">General Motors · Grand Rapids and Warren, Michigan</div>
+                        </div>
+                        <div class="timeline-meta">June 2023 - Present</div>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Developed Rockwell PLC and HMI logic to modernise legacy processes and improve reliability.</li>
+                        <li>Designed a custom PCB system with cellular connectivity for proactive diagnostics and loss prevention.</li>
+                        <li>Used data-driven investigation to remove a recurring cost pattern at six figure scale.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-role">Sales Associate</div>
+                            <div class="timeline-company">Bluelink Wireless (AT&amp;T) · State College, Pennsylvania</div>
+                        </div>
+                        <div class="timeline-meta">August 2022 - December 2022</div>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Consistently exceeded 200 percent of sales quotas and ranked in the top three for new lines in the region.</li>
+                        <li>Translated technical plans into clear savings and benefits for customers.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-role">Student Manager</div>
+                            <div class="timeline-company">Pennsylvania State University · State College, Pennsylvania</div>
+                        </div>
+                        <div class="timeline-meta">November 2021 - April 2022</div>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Oversaw more than 100 student employees, balancing coverage, service, and training across shifts.</li>
+                        <li>Introduced practices that improved engagement and made growth paths clearer for staff.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Skills</div>
+                    <h2 class="section-title">Code, controls, and systems thinking.</h2>
+                </div>
+                <p class="section-subtitle">
+                    Comfortable working at the boundary between hardware and software.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <div class="skills-title">Programming</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">C</span>
+                        <span class="skill-badge">JavaScript / Node.js</span>
+                        <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">R</span>
+                        <span class="skill-badge">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <div class="skills-title">Automation and hardware</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Rockwell PLCs</span>
+                        <span class="skill-badge">Siemens HMIs</span>
+                        <span class="skill-badge">Raspberry Pi</span>
+                        <span class="skill-badge">EtherNet/IP</span>
+                        <span class="skill-badge">DeviceNet</span>
+                        <span class="skill-badge">CAN bus</span>
+                        <span class="skill-badge">Fanuc robots</span>
+                    </div>
+                </div>
+
+                <div class="skills-card">
+                    <div class="skills-title">Tools and practices</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">RSLogix</span>
+                        <span class="skill-badge">Tia Portal / Siemens</span>
+                        <span class="skill-badge">Microsoft and Google Cloud</span>
+                        <span class="skill-badge">GitHub</span>
+                        <span class="skill-badge">SolidWorks</span>
+                        <span class="skill-badge">AutoCAD</span>
+                        <span class="skill-badge">Collaborative leadership</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership -->
+        <section id="leadership">
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Leadership and involvement</div>
+                    <h2 class="section-title">Owning outcomes beyond code.</h2>
+                </div>
+                <p class="section-subtitle">
+                    Building teams and communities alongside technical work.
+                </p>
+            </div>
+
+            <div class="leadership-grid">
+                <article class="lead-card">
+                    <div class="lead-role">President · World Campus Benefitting THON</div>
+                    <div class="lead-org">Pennsylvania State University</div>
+                    <div class="lead-meta">August 2024 - Present</div>
+                    <p class="lead-text">
+                        Leading a remote executive team that supports THON, contributing to Penn State's multi-million dollar annual total for paediatric cancer support through events and outreach.
+                    </p>
+                </article>
+
+                <article class="lead-card">
+                    <div class="lead-role">Electrical sub-system · Nittany Motorsports (Formula E)</div>
+                    <div class="lead-org">Pennsylvania State University</div>
+                    <div class="lead-meta">June 2023 - Present</div>
+                    <p class="lead-text">
+                        Working on the electrical sub-system with a focus on CAN bus performance, protection, and reliability for competition vehicles.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <div class="contact-inner">
+                <div>
+                    <div class="contact-text-main">Interested in roles or collaboration?</div>
+                    <div class="contact-text-sub">
+                        Open to work in software engineering, manufacturing automation, and embedded systems, as well as projects that combine them.
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <a class="contact-link" href="mailto:rylenbillings@gmail.com">Email</a>
+                    <a class="contact-link" href="https://www.linkedin.com/in/robert--billings/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="contact-link" href="https://github.com/robertjgvv" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    © <span id="year"></span> Robert A. Billings. All rights reserved.
+</footer>
+
+<script>
+    // rotating roles
+    const roles = [
+        "Software Engineer",
+        "Manufacturing Engineer",
+        "Innovator",
+        "Student"
+    ];
+
+    let role_index = 0;
+    const role_element = document.getElementById("role-rotator");
+
+    function rotate_role() {
+        role_index = (role_index + 1) % roles.length;
+        role_element.style.opacity = 0;
+        setTimeout(function () {
+            role_element.textContent = roles[role_index];
+            role_element.style.opacity = 1;
+        }, 180);
     }
 
-    typeAndDeleteEffect();
-  </script>
+    setInterval(rotate_role, 2600);
+
+    // parallax shapes
+    const parallax_shapes = document.querySelectorAll("[data-parallax-speed]");
+
+    window.addEventListener("scroll", function () {
+        const scroll_y = window.scrollY;
+        parallax_shapes.forEach(function (shape) {
+            const speed = parseFloat(shape.getAttribute("data-parallax-speed"));
+            const translate_y = scroll_y * speed * -0.12;
+            shape.style.transform = "translate3d(0," + translate_y + "px,0)";
+        });
+    });
+
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
