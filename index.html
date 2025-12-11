@@ -89,7 +89,7 @@
 
         .hero-title {
             font-family: "Space Grotesk", system-ui, sans-serif;
-            font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+            font-size: clamp(2.2rem, 3.4vw, 3.2rem);
             line-height: 1.1;
             margin-bottom: 16px;
         }
@@ -673,19 +673,51 @@
             text-align: center;
         }
 
-        /* Responsive */
+        /* ----------- RESPONSIVE ----------- */
+
         @media (max-width: 880px) {
+            .hero {
+                min-height: auto;
+                padding-top: 72px;
+                padding-bottom: 56px;
+            }
+
             .hero-grid {
                 grid-template-columns: minmax(0, 1fr);
+                gap: 32px;
             }
+
             .hero-right {
                 order: -1;
             }
+
+            .hero-left {
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-chips,
+            .hero-actions {
+                justify-content: center;
+            }
+
             .snapshot-grid,
             .projects-grid,
             .skills-grid,
             .leadership-grid {
                 grid-template-columns: minmax(0, 1fr);
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .page {
+                padding: 0 18px 64px;
             }
         }
 
@@ -694,17 +726,72 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .page {
-                padding: 0 16px 60px;
+
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 2.4rem);
             }
+
+            .hero-subtitle {
+                font-size: 0.96rem;
+            }
+
+            .hero-card {
+                padding: 18px 16px 14px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .scroll-cue {
+                display: none;
+            }
+
             .timeline {
                 padding-left: 20px;
             }
+
             .timeline::before {
                 left: 6px;
             }
+
             .timeline-card::before {
                 left: -19px;
+            }
+
+            .contact-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-links {
+                width: 100%;
+            }
+
+            .contact-link {
+                flex: 1 1 auto;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page {
+                padding: 0 14px 56px;
+            }
+
+            .hero {
+                padding-top: 64px;
+            }
+
+            .hero-card {
+                margin: 0 auto;
+                max-width: 360px;
+            }
+
+            .shape-blue,
+            .shape-purple,
+            .shape-outline {
+                opacity: 0.25;
             }
         }
     </style>
@@ -988,9 +1075,6 @@
                     <div class="section-label">Skills</div>
                     <h2 class="section-title">Code, controls, and systems thinking.</h2>
                 </div>
-                <p class="section-subtitle">
-                    Comfortable working at the boundary between hardware and software.
-                </p>
             </div>
 
             <div class="skills-grid">
@@ -1080,8 +1164,8 @@
                 </div>
                 <div class="contact-links">
                     <a class="contact-link" href="mailto:rylenbillings@gmail.com">Email</a>
-                    <a class="contact-link" href="https://www.linkedin.com/in/robert--billings/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a class="contact-link" href="https://github.com/robertjgvv" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a class="contact-link" href="https://www.linkedin.com/in/robert-billings/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="contact-link" href="https://github.com/robertjvv" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
         </section>
